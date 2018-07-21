@@ -1,7 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './Book.css';
 
-class Book extends Component {
+/**
+ * Class book allows to render book object
+ * 
+ * @author Grzegorz Perlak
+ */
+class Book extends PureComponent {
     state = {
         shelf: ''
     }

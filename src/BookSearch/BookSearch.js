@@ -1,22 +1,32 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
-import * as BooksAPI from './BooksAPI';
-import Book from './Book/Book.js';
+import * as BooksAPI from '../BooksAPI';
+import Book from '../Book/Book.js';
 import './BookSearch.css';
 
-export class BookSearch extends PureComponent {
+/**
+ * Class BookSearch search books on API and shows them on the page
+ * 
+ * @author Grzegorz Perlak
+ */
+class BookSearch extends PureComponent {
     state = {
         books: [],
     }
 
+    /**
+     * Method makes call to API with provided query
+     */
     searchBooks = event => {
         const query = event.target.value;
 
         BooksAPI.search(query).then(res => {
             if (res instanceof Array) {
+                // Checks if in found books are books already existing on bookshelfs
                 const filtered = res.map(book => {
                     const bookOnShelf = this.props.shelfBooks.filter(shelfBook => shelfBook.id === book.id)[0];
-                    book.shelf = bookOnShelf ? bookOnShelf.shelf : '';
+
+                    book.shelf = bookOnShelf ? bookOnShelf.shelf : 'none';
 
                     return book;
                 });
@@ -40,21 +50,13 @@ export class BookSearch extends PureComponent {
                 <div className="search-books-bar">
                     <Link to="/" className="close-search">Close</Link>
                     <div className="search-books-input-wrapper">
-                        {/*
-                             NOTES: The search from BooksAPI is limited to a particular set of search terms.
-                             You can find these search terms here:
-                             https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
- 
-                             However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-                             you don't find a specific author or title. Every search is limited by search terms.
-                        */}
                         <input type="text" placeholder="Search by title or author" onChange={this.searchBooks} />
                     </div>
                 </div>
                 {books.length > 0 &&
                     <div className="search-books-results">
                         <ol className="books-grid">
-                            {books.map((book) =>
+                            {books.map(book =>
                                 <li key={book.id}>
                                     <Book
                                         image={book.imageLinks !== undefined ? (book.imageLinks.smallThumbnail !== undefined ? book.imageLinks.smallThumbnail : null) : null}
@@ -63,11 +65,12 @@ export class BookSearch extends PureComponent {
                                         shelf={book.shelf}
                                         onOptionSelect={this.props.updateShelf(book)}
                                     ></Book>
-                                </li>
-                            )}
+                                </li>)}
                         </ol>
                     </div>}
             </div>
         )
     }
 }
+
+export default BookSearch;
