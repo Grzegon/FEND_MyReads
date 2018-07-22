@@ -22,7 +22,7 @@ class BookSearch extends PureComponent {
 
         BooksAPI.search(query).then(res => {
             if (res instanceof Array) {
-                // Checks if in found books are books already existing on bookshelfs
+                // Checks if in found books are books already existing on bookshelves
                 const filtered = res.map(book => {
                     const bookOnShelf = this.props.shelfBooks.filter(shelfBook => shelfBook.id === book.id)[0];
 
