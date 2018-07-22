@@ -1,10 +1,10 @@
 ## Table of contents
 
-- [Application overview]
-- [How the application works]
-- [Installation guide]
-- [Version]
-- [License]
+- [Application overview](#application-overview)
+- [How the application works](#how-the-application-works)
+- [Installation guide](#installation-guide)
+- [Version](#version)
+- [License](#license)
 
 ## Application overview
 
@@ -26,9 +26,9 @@ All search terms which you can use are in this file:[Search terms](https://githu
 
 ## Installation guide
 
-**1.** Download repository from [GitHub](https://github.com/Grzegon/FEND_MyReads)
-**2.** Install project dependencies with <code>npm install</code>
-**3.** Start the development server with <code>npm start</code>
+1. Download repository from [GitHub](https://github.com/Grzegon/FEND_MyReads)
+2. Install project dependencies with <code>npm install</code>
+3. Start the development server with <code>npm start</code>
 
 ## Version
 
