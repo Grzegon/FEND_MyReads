@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('../icons/notFound.jpg');
+}
+.link {
+    margin-left: 10px;
+    text-decoration: none;
+    color: black;
+}
