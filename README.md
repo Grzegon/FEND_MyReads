@@ -22,7 +22,7 @@ Application is made of three pages:
 2. Search page - you can search for books by chosen terms and then put them in your library
 3. NotFound page - which prevents to use unused routes of application
 
-All search terms which you can use are in this file:[Search terms](https://github.com/Grzegon/FEND_MyReads/blob/master/SEARCH_TERMS.md)
+All search terms which you can use are in this file: [Search terms](https://github.com/Grzegon/FEND_MyReads/blob/master/SEARCH_TERMS.md)
 
 ## Installation guide
 
